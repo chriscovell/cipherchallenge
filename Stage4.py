@@ -6,3 +6,6 @@ print("Hi Dad!")
 
 # this is a comment
 print("this is code")
+
+def testFunc(stuff):
+    print("funky")
