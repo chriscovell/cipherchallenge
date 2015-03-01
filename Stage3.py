@@ -10,15 +10,19 @@ def cleaner(string):
     for i in string:
         if i != "*":
             cleantext += i
-    print(cleantext.rstrip())
-    return(cleantext.rstrip())
+    #print(cleantext)
+    return(cleantext)
         
 def build(string):
+    Built = []
     specFreq = [[0 for j in range(2)] for i in range(26)]
     for x in range(0, (len(string)), 2):
         count = 0
         y = string[x:x+2]
         #print(y)
+        #Built.append(y)
+    print(Built)
+    return(Built)
 
 def freq(alphabet, string):
     for symbol in alphabet:
