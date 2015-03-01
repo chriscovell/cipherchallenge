@@ -26,8 +26,8 @@ def freq(alphabet, string):
         print(symbol)
     return()
 
-print(build(cleaner(ciphertext)))
 SymbolList = build(cleaner(ciphertext))
+#print(SymbolList)
 freq(SymbolList, ciphertext)
 
 def getKey(item):
