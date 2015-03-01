@@ -15,24 +15,34 @@ def cleaner(string):
         
 def build(string):
     Built = []
-    specFreq = [[0 for j in range(2)] for i in range(26)]
     for x in range(0, (len(string)), 2):
         count = 0
         y = string[x:x+2]
         #print(y)
-        #Built.append(y)
-    print(Built)
+        Built.append(y)
+    #print(Built)
     return(Built)
 
 def freq(alphabet, string):
+    print(alphabet)
+    specFreq = [[0 for j in range(2)] for i in range(len(alphabet))]
+    #print(specFreq)
+    position = 0
     for symbol in alphabet:
         count = 0
-        print(symbol)
-    return()
+        #print(symbol)
+        for x in range(0, len(string), 2):
+            #print(x)
+            if symbol == string[x:x+2]:
+                count = count+1
+        specFreq[position] = (symbol, count)
+        position = position+1
+    return(specFreq)
 
-SymbolList = build(cleaner(ciphertext))
+Clean = cleaner(ciphertext)
+SymbolList = build(Clean)
 #print(SymbolList)
-freq(SymbolList, ciphertext)
+print(freq(SymbolList, Clean))
 
 def getKey(item):
     

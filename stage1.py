@@ -44,7 +44,7 @@ cipherTextFreq = freq(cipherText)
 orderedCipherTextFreq = sorted(cipherTextFreq, key=getKey, reverse=True)
 #print orderedCipherTextFreq
 
-print cipherText
+print (cipherText)
 
 plainText=""
 for character in cipherText:
@@ -53,4 +53,4 @@ for character in cipherText:
     # build up our plain text
     plainText=plainText+newChar
     
-print plainText
+print (plainText)
