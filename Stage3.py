@@ -14,7 +14,7 @@ def cleaner(string, needle):
     return(cleantext)
         
 def build(string, num):
-    # grab pairs of charcters
+    # grab pairs of characters
     Built = []
     for x in range(0, (len(string)), num):
         count = 0
@@ -58,14 +58,19 @@ def dedupe(Symbols):
             seen.add(Symbol)
     return output
 
-Clean = cleaner(ciphertext, "")
-SymbolList = build(Clean, 2)
+# Start of program
+alphabetCharLength=3
+charToClean="*"
+
+Clean = cleaner(ciphertext, charToClean)
+
+SymbolList = build(Clean, alphabetCharLength)
 print(SymbolList)
 
 DedupedSymbolList = dedupe(SymbolList)
 print(DedupedSymbolList)
 
-FreqCipherText = freq(DedupedSymbolList, Clean, 2)
+FreqCipherText = freq(DedupedSymbolList, Clean, alphabetCharLength)
 
 Ordered = sorted(FreqCipherText, key = getKey, reverse = True)
 print(Ordered)
