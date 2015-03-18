@@ -1,4 +1,5 @@
 # Start of stage 3
+import collections
 #open text file
 r = open("stage3_ciphertext", "r")
 ciphertext = r.read()
@@ -14,7 +15,7 @@ def cleaner(string, needle):
     return(cleantext)
         
 def build(string, num):
-    # grab pairs of characters
+    # grab characters, "num" at a time 
     Built = []
     for x in range(0, (len(string)), num):
         count = 0
@@ -58,9 +59,15 @@ def dedupe(Symbols):
             seen.add(Symbol)
     return output
 
+def FreqAnalysisCounter(array):
+    counts=[x[1] for x in array]
+    #print (counts)
+    counter=collections.Counter(counts)
+    return counter
+
 # Start of program
-alphabetCharLength=3
-charToClean="*"
+alphabetCharLength=2
+charToClean=""
 
 Clean = cleaner(ciphertext, charToClean)
 
@@ -74,4 +81,6 @@ FreqCipherText = freq(DedupedSymbolList, Clean, alphabetCharLength)
 
 Ordered = sorted(FreqCipherText, key = getKey, reverse = True)
 print(Ordered)
-print(len(Ordered))
+print "Number of alphabet symbols:", (len(Ordered))
+print "Frequency distribution", FreqAnalysisCounter(Ordered)
+        
