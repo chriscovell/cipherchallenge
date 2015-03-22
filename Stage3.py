@@ -66,13 +66,13 @@ def FreqAnalysisCounter(array):
     return counter
 
 # Start of program
-alphabetCharLength=2
-charToClean=""
+alphabetCharLength=1
+charToClean="X"
 
 Clean = cleaner(ciphertext, charToClean)
 
 SymbolList = build(Clean, alphabetCharLength)
-print(SymbolList)
+#print(SymbolList)
 
 DedupedSymbolList = dedupe(SymbolList)
 print(DedupedSymbolList)
