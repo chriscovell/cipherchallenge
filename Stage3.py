@@ -4,7 +4,34 @@ import collections
 r = open("stage3_ciphertext", "r")
 ciphertext = r.read()
 #frequency of letters
-genFreq = ["e","t","a","o","i","n","s","h","r","d","l","c","u","m","w","f","g","y","p","b","v","k","j","x","q","z"]
+#genFreq = ["e","t","a","o","i","n","s","h","r","d","l","c","u","m","w","f","g","y","p","b","v","k","j","x","q","z"]
+# Italiano genFreq = ["e", "a", "i", "o", "n", "l", "r", "t", "s", "c", "d", "p", "u", "m", "v", "g", "z", "f", "b", "h", "q", "w", "y", "j", "k", "x"]
+genFreq = ["i", "a", "r", "p", "n", "l", "e", "s", "t", "c", "d", "o", "u", "m", "v", "g", "z", "y", "b", "h", "q", "w", "f", "j", "k", "x"]
+
+def decrypt(baseFreq, ourFreq, character):
+    # find our character in ourFreq map
+    
+    if character == "M" or character == "C" or character == "B":
+        return("i")
+    if character == "G" or character == "Z" or character == "N":
+        return("a")
+    
+    for c in range(0,26):
+        tup=ourFreq[c]
+        if tup[0]==character:
+            return baseFreq[c]
+    # return the appropriate character out of the baseFreq list
+    return character
+
+def Replacer(Replace, Replacee, Text):
+    ReplacedText = ""
+    for i in Text:
+        if i == Replace:
+            ReplacedText += Replacee
+        else:
+            ReplacedText += i
+        
+    return(ReplacedText)
 
 def cleaner(string, needle):
     cleantext = ""
@@ -66,8 +93,10 @@ def FreqAnalysisCounter(array):
     return counter
 
 # Start of program
-alphabetCharLength=1
-charToClean="X"
+alphabetCharLength = 1
+charToClean = ""
+CharToReplace = "X"
+CharToReplaceWith = " "
 
 Clean = cleaner(ciphertext, charToClean)
 
@@ -81,6 +110,17 @@ FreqCipherText = freq(DedupedSymbolList, Clean, alphabetCharLength)
 
 Ordered = sorted(FreqCipherText, key = getKey, reverse = True)
 print(Ordered)
-print "Number of alphabet symbols:", (len(Ordered))
-print "Frequency distribution", FreqAnalysisCounter(Ordered)
+print ("Cipher text length is: ", len(ciphertext))
+print ("Number of alphabet symbols:", (len(Ordered)))
+print ("Frequency distribution", FreqAnalysisCounter(Ordered))
+ReplacedCipherText = Replacer(CharToReplace, CharToReplaceWith, ciphertext)
+print (ReplacedCipherText)
+plainText=""
+for character in ReplacedCipherText:
+    # send each character in our cipher to the decrypt function
+    newChar=decrypt(genFreq, DedupedSymbolList, character)
+    # build up our plain text
+    plainText += newChar
+
+print(plainText)
         
