@@ -11,9 +11,9 @@ genFreq = ["i", "a", "r", "p", "n", "l", "e", "s", "t", "c", "d", "o", "u", "m",
 def decrypt(baseFreq, ourFreq, character):
     # find our character in ourFreq map
     
-    if character == "M" or character == "C" or character == "B":
+    if character == "G" or character == "C" or character == "B":
         return("i")
-    if character == "G" or character == "Z" or character == "N":
+    if character == "M" or character == "Z" or character == "N":
         return("a")
     
     for c in range(0,26):
