@@ -26,12 +26,13 @@ FXVFSOFPEIXX*BXYBVI*BXFTXSILFSQXQXQRPBUIV
 
 Homophones
 Top
-M
-G
+M=13
+G=14
 Middle
-C
-Z
+C=30
+Z=30
 Bottom
-B
-N
+B=19
+N=7
+113
 
