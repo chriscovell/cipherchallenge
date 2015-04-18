@@ -90,6 +90,7 @@ def FreqAnalysisCounter(array):
     return counter
 
 def findDoubles(list, text):
+    print("Doubles")
     for char in list:
         count=0
         prev=""
@@ -101,7 +102,9 @@ def findDoubles(list, text):
         if(count>0):
             print(char,"-",count)
            
-
+def findSingles(list, text):
+    print("Singles")
+    
 
     
 # Start of program
@@ -120,7 +123,7 @@ CharToReplaceWith = ""
 #print(Clean)
 
 #genFreq = [" ", "e", "a", "i", "o", "n", "l", "r", "t", "s", "c", "d", "p", "u", "m", "v", "g", "z", "f", "b", "h", "q", "w", "y", "j", "k", "x"]
-genFreq = [" ", "e", "a", "i", "o", "n", "l", "r", "t", "s", "c", "d", "p", "u", "m", "v", "g", "z", "f", "b", "h", "q", "w", "y", "j", "k", "x"]
+genFreq = [" ", "a", "e", "o", "i", "n", "t", "l", "r", "s", "c", "u", "p", "m", "d", "v", "g", "q", "f", "h", "z", "b", "w", "y", "j", "k", "x"]
 
 
 # Replace our homophones now...
